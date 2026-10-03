@@ -1,0 +1,57 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "resume-matcher-ai"
+version = "1.0.0"
+description = "AI-Powered Resume Matcher & Career Analyzer with Free OpenRouter Models, RAG, and Web Search"
+authors = [{ name = "Career Intelligence Team" }]
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = [
+    "fastapi>=0.115.0",
+    "uvicorn[standard]>=0.30.0",
+    "pydantic>=2.8.0",
+    "pydantic-settings>=2.4.0",
+    "httpx[http2]>=0.27.0",
+    "tenacity>=8.5.0",
+    "keyring>=24.3.0",
+    "cryptography>=43.0.0",
+    "pyjwt>=2.9.0",
+    "argon2-cffi>=23.1.0",
+    "slowapi>=0.1.9",
+    "chromadb>=0.5.5",
+    "rank-bm25>=0.2.2",
+    "duckduckgo-search>=6.2.0",
+    "ddgs>=9.0.0; extra == 'ddgs'",
+    "trafilatura>=1.12.0",
+    "pypdf>=4.3.0",
+    "pdfplumber>=0.11.0",
+    "python-docx>=1.1.2",
+    "sqlmodel>=0.0.21",
+    "nicegui>=1.4.30",
+    "fpdf2>=2.7.9",
+    "python-multipart>=0.0.9",
+    "rich>=13.7.1",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=8.3.0",
+    "pytest-asyncio>=0.23.0",
+    "respx>=0.21.0",
+    "ruff>=0.5.0",
+    "mypy>=1.11.0",
+    "bandit>=1.7.9",
+    "pre-commit>=3.8.0"
+]
+
+[tool.ruff]
+line-length = 100
+target-version = "py312"
+
+[tool.pytest.ini_options]
+asyncio_mode = "auto"
+testpaths = ["tests"]
+pythonpath = ["."]
